@@ -1,0 +1,4 @@
+{
+    "port": "3000",
+    "device": "/dev/ttyUSB0"
+}

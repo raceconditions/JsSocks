@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS Socks</title>
+	<script src='/socket.io/socket.io.js'></script>
+        <script>
+            var socket = io();
+
+            socket.on('error', console.error.bind(console));
+            socket.on('message', console.log.bind(console));
+
+document.onkeydown = checkKey;
+var speed = 1;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        socket.emit('up', {data: speed});
+    }
+    else if (e.keyCode == '40') {
+        socket.emit('down', {data: speed});
+    }
+    else if (e.keyCode == '37') {
+        socket.emit('left', {data: speed});
+    }
+    else if (e.keyCode == '39') {
+        socket.emit('right', {data: speed});
+    }
+    else if (e.keyCode == '32') {
+        socket.emit('stop');
+    }
+    else if (e.keyCode == '97' || e.keyCode == 49) {
+        speed = 1
+    }
+    else if (e.keyCode == '98' || e.keyCode == 50) {
+        speed = 2
+    }
+    else if (e.keyCode == '99' || e.keyCode == 51) {
+        speed = 3
+    }
+    else if (e.keyCode == '100' || e.keyCode == 52) {
+        speed = 4
+    }
+    else if (e.keyCode == '101' || e.keyCode == 53) {
+        speed = 5
+    }
+    else if (e.keyCode == '102' || e.keyCode == 54) {
+        speed = 6
+    }
+    else if (e.keyCode == '103' || e.keyCode == 55) {
+        speed = 7
+    }
+    else if (e.keyCode == '104' || e.keyCode == 56) {
+        speed = 8
+    }
+    else if (e.keyCode == '105' || e.keyCode == 57) {
+        speed = 9
+    } 
+    else { 
+	console.log('keycode: ' + e.keyCode); 
+    }
+}
+        </script>
+	</head>
+	<body>
+		<center>
+			<img src="http://camera.raceconditions.net/?action=stream" />
+		</center>
+
+	<ul id='messages'></ul>
+
+
+	</body>
+</html>
